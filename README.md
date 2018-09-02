@@ -1,6 +1,6 @@
 # Cards
 
-**TODO: Add description**
+A program that will create a deck of cards that can be interacted in ways such as shuffling. Made to learn the Elixir language.
 
 ## Installation
 
