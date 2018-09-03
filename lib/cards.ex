@@ -25,11 +25,33 @@ defmodule Cards do
 
   def deal(deck, hand_size) do
     # Need to split the list
+    # Creates a tuple
     Enum.split(deck, hand_size)
   end
 
   def contains?(hand, card) do
     Enum.member?(hand, card)
+  end
+
+  def save(deck, filename) do
+    binary = :erlang.term_to_binary(deck)
+    File.write(filename, binary)
+  end
+
+  def load(filename) do
+    # Works, could be better using pattern matching
+    # { status, binary } = File.read(filename)
+    # case status do
+    #   :ok -> :erlang.binary_to_term(binary)
+    #   :error -> "File not found"
+    # end  
+
+    # Do comparision and assignment at the same time
+    case File.read(filename) do
+      { :ok, binary } -> :erlang.binary_to_term(binary)
+      { :error, _ } -> "File not found"
+    end
+    
   end
 
 end
