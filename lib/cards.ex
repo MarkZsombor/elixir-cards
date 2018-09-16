@@ -1,4 +1,11 @@
 defmodule Cards do
+  @moduledoc """
+    Provides methods for creating and handling a deck of cards
+  """
+
+  @doc """
+    Returns a list of strings representing a deck of cards
+  """
 
   def create_deck do
     values = ["Ace", "Two", "Three", "Four", "Five", "Jack", "Queen", "King"]
@@ -22,6 +29,19 @@ defmodule Cards do
   def shuffle(deck) do
     Enum.shuffle(deck)
   end
+
+  @doc """
+    Divides a deck into hand and remainder of the deck.
+    The `hand-size` argument dictates how large of a hand to creates.
+
+  ## Examples
+
+      iex> deck = Cards.create_deck
+      iex> {hand, deck} = Cards.deal(deck, 1)
+      iex> hand
+      ["Ace of Spades"]
+
+  """
 
   def deal(deck, hand_size) do
     # Need to split the list
