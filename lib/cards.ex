@@ -39,7 +39,7 @@ defmodule Cards do
       iex> deck = Cards.create_deck
       iex> {hand, deck} = Cards.deal(deck, 1)
       iex> hand
-      ["Ace of Spades"]
+      ["Ace of Hearts"]
 
   """
 
@@ -49,6 +49,17 @@ defmodule Cards do
     Enum.split(deck, hand_size)
   end
 
+
+  @doc """
+    Determines if a hand or deck contains a specific card
+
+  ## Examples
+
+      iex> deck = Cards.create_deck
+      iex> Cards.contains?(deck, "Ace of Spades")
+      true
+
+  """
   def contains?(hand, card) do
     Enum.member?(hand, card)
   end
